@@ -1,2 +1,2 @@
 # inteligencia-artificial
-5 período Ciência da Computação UTP
+inteligencia artificial / ciencia da computacao / lucas muller scuzziato / ...
