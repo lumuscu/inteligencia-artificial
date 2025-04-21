@@ -1,15 +1,16 @@
 import heapq
 import time
 import csv
+import matplotlib.pyplot as plt
 from collections import deque
 
 class Puzzle:
     def __init__(self, estado, pai=None, acao=None, custo=0):
-        self.estado = estado  # estado atual do tabuleiro (lista de listas)
-        self.pai = pai        # nó pai
-        self.acao = acao      # ação que levou a este estado
-        self.custo = custo    # custo acumulado do caminho
-        self.dimensao = len(estado)  # dimensão do tabuleiro (3 para o 8-puzzle)
+        self.estado = estado
+        self.pai = pai
+        self.acao = acao
+        self.custo = custo
+        self.dimensao = len(estado)
     
     def __lt__(self, other):
         return self.custo < other.custo
@@ -18,48 +19,39 @@ class Puzzle:
         return self.estado == other.estado
     
     def __hash__(self):
-        # Converte a matriz em uma tupla de tuplas para torná-la hashable
         return hash(tuple(tuple(row) for row in self.estado))
     
     def encontrar_vazio(self):
-        """Encontra a posição do espaço vazio (0) no tabuleiro."""
         for i in range(self.dimensao):
             for j in range(self.dimensao):
                 if self.estado[i][j] == 0:
                     return i, j
     
     def eh_objetivo(self, objetivo):
-        """Verifica se o estado atual é o estado objetivo."""
         return self.estado == objetivo
     
     def gerar_sucessores(self):
-        """Gera todos os estados sucessores possíveis."""
         i, j = self.encontrar_vazio()
         sucessores = []
         
-        # Possíveis movimentos: cima, baixo, esquerda, direita
         acoes = [('cima', -1, 0), ('baixo', 1, 0), ('esquerda', 0, -1), ('direita', 0, 1)]
         
         for acao, di, dj in acoes:
             novo_i, novo_j = i + di, j + dj
             
-            # Verifica se o movimento é válido
             if 0 <= novo_i < self.dimensao and 0 <= novo_j < self.dimensao:
-                # Cria um novo estado movendo o espaço vazio
-                novo_estado = [row[:] for row in self.estado]  # cópia profunda
+                novo_estado = [row[:] for row in self.estado]
                 novo_estado[i][j], novo_estado[novo_i][novo_j] = novo_estado[novo_i][novo_j], novo_estado[i][j]
                 
-                # Cria um novo nó para o sucessor
                 sucessor = Puzzle(novo_estado, self, acao, self.custo + 1)
                 sucessores.append(sucessor)
                 
         return sucessores
     
     def distancia_manhattan(self, objetivo):
-
         distancia = 0
         posicoes_alvo = {}
-        # Pré-calcula as posições alvo
+        
         for i in range(self.dimensao):
             for j in range(self.dimensao):
                 posicoes_alvo[objetivo[i][j]] = (i, j)
@@ -73,7 +65,6 @@ class Puzzle:
         return distancia
     
     def pecas_fora_do_lugar(self, objetivo):
-        """Conta quantas peças estão fora do lugar em relação ao objetivo."""
         count = 0
         for i in range(self.dimensao):
             for j in range(self.dimensao):
@@ -83,7 +74,6 @@ class Puzzle:
 
 
 def reconstruir_caminho(no_final):
-    """Reconstrói o caminho da solução a partir do nó final."""
     caminho = []
     atual = no_final
     
@@ -95,7 +85,6 @@ def reconstruir_caminho(no_final):
 
 
 def busca_em_largura(estado_inicial, estado_objetivo, tempo_limite=10):
-    """Implementa a busca em largura (BFS) com limite de tempo."""
     inicio = time.time()
     
     inicio_no = Puzzle(estado_inicial)
@@ -107,7 +96,6 @@ def busca_em_largura(estado_inicial, estado_objetivo, tempo_limite=10):
     nos_expandidos = 0
     
     while fronteira:
-        # Verifica se excedeu o tempo limite
         if time.time() - inicio > tempo_limite:
             return None, nos_expandidos, tempo_limite
             
@@ -134,7 +122,6 @@ def busca_em_largura(estado_inicial, estado_objetivo, tempo_limite=10):
 
 
 def busca_em_profundidade(estado_inicial, estado_objetivo, limite_profundidade=30, tempo_limite=10):
-    """Implementa a busca em profundidade (DFS) com limite de profundidade e tempo."""
     inicio = time.time()
     
     inicio_no = Puzzle(estado_inicial)
@@ -146,11 +133,10 @@ def busca_em_profundidade(estado_inicial, estado_objetivo, limite_profundidade=3
     nos_expandidos = 0
     
     while fronteira:
-        # Verifica se excedeu o tempo limite
         if time.time() - inicio > tempo_limite:
             return None, nos_expandidos, tempo_limite
             
-        no_atual = fronteira.pop()  # Remove o último elemento (LIFO)
+        no_atual = fronteira.pop()
         
         if no_atual.custo > limite_profundidade:
             continue
@@ -164,7 +150,6 @@ def busca_em_profundidade(estado_inicial, estado_objetivo, limite_profundidade=3
                 fim = time.time()
                 return reconstruir_caminho(no_atual), nos_expandidos, fim - inicio
             
-            # Adiciona os sucessores à pilha em ordem inversa
             for sucessor in reversed(no_atual.gerar_sucessores()):
                 sucessor_hash = hash(tuple(tuple(row) for row in sucessor.estado))
                 if sucessor_hash not in explorados:
@@ -175,7 +160,6 @@ def busca_em_profundidade(estado_inicial, estado_objetivo, limite_profundidade=3
 
 
 def busca_gulosa(estado_inicial, estado_objetivo, heuristica, tempo_limite=10):
-    """Implementa a busca gulosa com uma heurística e limite de tempo."""
     inicio = time.time()
     
     inicio_no = Puzzle(estado_inicial)
@@ -188,7 +172,6 @@ def busca_gulosa(estado_inicial, estado_objetivo, heuristica, tempo_limite=10):
     nos_expandidos = 0
     
     while fronteira:
-        # Verifica se excedeu o tempo limite
         if time.time() - inicio > tempo_limite:
             return None, nos_expandidos, tempo_limite
             
@@ -215,33 +198,28 @@ def busca_gulosa(estado_inicial, estado_objetivo, heuristica, tempo_limite=10):
 
 
 def heuristica_manhattan(no, objetivo):
-    """Função heurística que calcula a distância de Manhattan."""
     return no.distancia_manhattan(objetivo)
 
 
 def heuristica_pecas_fora(no, objetivo):
-    """Função heurística que conta peças fora do lugar."""
     return no.pecas_fora_do_lugar(objetivo)
 
 
 def busca_a_estrela(estado_inicial, estado_objetivo, heuristica, tempo_limite=10):
-    """Implementa a busca A* com uma heurística e limite de tempo."""
     inicio = time.time()
     
     inicio_no = Puzzle(estado_inicial)
     if inicio_no.eh_objetivo(estado_objetivo):
         return reconstruir_caminho(inicio_no), 1, 0
     
-    # A* usa custo do caminho + heurística
     fronteira = [(heuristica(inicio_no, estado_objetivo) + inicio_no.custo, inicio_no)]
     heapq.heapify(fronteira)
     explorados = set()
     nos_expandidos = 0
     
-    g_scores = {hash(tuple(tuple(row) for row in inicio_no.estado)): 0}  # Custo do caminho do início até cada nó
+    g_scores = {hash(tuple(tuple(row) for row in inicio_no.estado)): 0}
     
     while fronteira:
-        # Verifica se excedeu o tempo limite
         if time.time() - inicio > tempo_limite:
             return None, nos_expandidos, tempo_limite
             
@@ -259,15 +237,12 @@ def busca_a_estrela(estado_inicial, estado_objetivo, heuristica, tempo_limite=10
         nos_expandidos += 1
         
         for sucessor in no_atual.gerar_sucessores():
-            # Calcula novo custo g para este sucessor
             tentative_g = no_atual.custo + 1
             
             sucessor_hash = hash(tuple(tuple(row) for row in sucessor.estado))
-            # Se já vimos este estado e o novo caminho não é melhor, ignoramos
             if sucessor_hash in g_scores and tentative_g >= g_scores[sucessor_hash]:
                 continue
                 
-            # Este é o melhor caminho até agora para este sucessor
             g_scores[sucessor_hash] = tentative_g
             f_score = tentative_g + heuristica(sucessor, estado_objetivo)
             heapq.heappush(fronteira, (f_score, sucessor))
@@ -277,7 +252,6 @@ def busca_a_estrela(estado_inicial, estado_objetivo, heuristica, tempo_limite=10
 
 
 def imprimir_caminho(caminho):
-    """Imprime o caminho da solução."""
     for i, no in enumerate(caminho):
         print(f"Passo {i}:")
         for linha in no.estado:
@@ -288,22 +262,18 @@ def imprimir_caminho(caminho):
 
 
 def imprimir_estado(estado):
-    """Imprime um estado do tabuleiro."""
     for linha in estado:
         print(linha)
 
 
 def ler_estados_do_csv(arquivo_csv):
-    """Lê os estados iniciais do arquivo CSV."""
     estados = []
     try:
         with open(arquivo_csv, 'r', newline='') as csvfile:
             reader = csv.reader(csvfile)
-            next(reader)  # Pula o cabeçalho
+            next(reader)
             for row in reader:
-                # Converte as strings para inteiros
                 numeros = [int(cell) for cell in row]
-                # Converte a lista plana para uma matriz 3x3
                 estado = [
                     numeros[0:3],
                     numeros[3:6],
@@ -312,7 +282,6 @@ def ler_estados_do_csv(arquivo_csv):
                 estados.append(estado)
     except Exception as e:
         print(f"Erro ao ler o arquivo CSV: {e}")
-        # Estado de exemplo em caso de falha na leitura
         estados = [
             [
                 [2, 8, 3],
@@ -325,36 +294,37 @@ def ler_estados_do_csv(arquivo_csv):
 
 
 def comparar_algoritmos(estado_inicial, estado_objetivo, tempo_limite=10):
-    """Compara o desempenho dos diferentes algoritmos de busca."""
+    resultados = {}
+    
     print("=" * 80)
     print("Comparando algoritmos de busca para o quebra-cabeça dos 8 números")
     print("=" * 80)
     
-    print("/nEstado Inicial:")
+    print("\nEstado Inicial:")
     imprimir_estado(estado_inicial)
-    print("/nEstado Objetivo:")
+    print("\nEstado Objetivo:")
     imprimir_estado(estado_objetivo)
-    print("/n")
+    print("\n")
     
-    # Tabela de resultados
     print("{:<20} {:<20} {:<20} {:<20}".format(
         "Algoritmo", "Tempo (s)", "Nós Expandidos", "Comprimento do Caminho"
     ))
     print("-" * 80)
     
-    # BFS
     caminho, nos, tempo = busca_em_largura(estado_inicial, estado_objetivo, tempo_limite)
     if caminho:
+        resultados["BFS"] = {"tempo": tempo, "nos": nos, "caminho": caminho}
         print("{:<20} {:<20.6f} {:<20} {:<20}".format(
             "BFS", tempo, nos, len(caminho) - 1
         ))
     else:
+        resultados["BFS"] = {"tempo": tempo, "nos": nos, "caminho": None}
         print("{:<20} {:<20.6f} {:<20} {:<20}".format(
             "BFS", tempo, nos, "Tempo limite excedido" if tempo >= tempo_limite else "Não encontrou"
         ))
     
-    # DFS
     caminho, nos, tempo = busca_em_profundidade(estado_inicial, estado_objetivo, 30, tempo_limite)
+    resultados["DFS"] = {"tempo": tempo, "nos": nos, "caminho": caminho}
     if caminho:
         print("{:<20} {:<20.6f} {:<20} {:<20}".format(
             "DFS", tempo, nos, len(caminho) - 1
@@ -364,8 +334,8 @@ def comparar_algoritmos(estado_inicial, estado_objetivo, tempo_limite=10):
             "DFS", tempo, nos, "Tempo limite excedido" if tempo >= tempo_limite else "Não encontrou"
         ))
     
-    # Busca Gulosa (Manhattan)
     caminho, nos, tempo = busca_gulosa(estado_inicial, estado_objetivo, heuristica_manhattan, tempo_limite)
+    resultados["Gulosa (Manhattan)"] = {"tempo": tempo, "nos": nos, "caminho": caminho}
     if caminho:
         print("{:<20} {:<20.6f} {:<20} {:<20}".format(
             "Gulosa (Manhattan)", tempo, nos, len(caminho) - 1
@@ -375,8 +345,8 @@ def comparar_algoritmos(estado_inicial, estado_objetivo, tempo_limite=10):
             "Gulosa (Manhattan)", tempo, nos, "Tempo limite excedido" if tempo >= tempo_limite else "Não encontrou"
         ))
     
-    # Busca Gulosa (Peças fora)
     caminho, nos, tempo = busca_gulosa(estado_inicial, estado_objetivo, heuristica_pecas_fora, tempo_limite)
+    resultados["Gulosa (Peças Fora)"] = {"tempo": tempo, "nos": nos, "caminho": caminho}
     if caminho:
         print("{:<20} {:<20.6f} {:<20} {:<20}".format(
             "Gulosa (Peças Fora)", tempo, nos, len(caminho) - 1
@@ -386,8 +356,8 @@ def comparar_algoritmos(estado_inicial, estado_objetivo, tempo_limite=10):
             "Gulosa (Peças Fora)", tempo, nos, "Tempo limite excedido" if tempo >= tempo_limite else "Não encontrou"
         ))
     
-    # A* (Manhattan)
     caminho, nos, tempo = busca_a_estrela(estado_inicial, estado_objetivo, heuristica_manhattan, tempo_limite)
+    resultados["A* (Manhattan)"] = {"tempo": tempo, "nos": nos, "caminho": caminho}
     if caminho:
         print("{:<20} {:<20.6f} {:<20} {:<20}".format(
             "A* (Manhattan)", tempo, nos, len(caminho) - 1
@@ -399,8 +369,8 @@ def comparar_algoritmos(estado_inicial, estado_objetivo, tempo_limite=10):
         ))
         melhor_caminho = None
     
-    # A* (Peças fora)
     caminho, nos, tempo = busca_a_estrela(estado_inicial, estado_objetivo, heuristica_pecas_fora, tempo_limite)
+    resultados["A* (Peças Fora)"] = {"tempo": tempo, "nos": nos, "caminho": caminho}
     if caminho:
         print("{:<20} {:<20.6f} {:<20} {:<20}".format(
             "A* (Peças Fora)", tempo, nos, len(caminho) - 1
@@ -410,7 +380,9 @@ def comparar_algoritmos(estado_inicial, estado_objetivo, tempo_limite=10):
             "A* (Peças Fora)", tempo, nos, "Tempo limite excedido" if tempo >= tempo_limite else "Não encontrou"
         ))
     
-    print("/nCaminho da melhor solução encontrada:")
+    print("=" * 80)
+    
+    print("\nCaminho da melhor solução encontrada:")
     if melhor_caminho:
         for i, no in enumerate([melhor_caminho[0], melhor_caminho[-1]]):
             print(f"{'Estado Inicial' if i == 0 else 'Estado Final'}:")
@@ -419,15 +391,20 @@ def comparar_algoritmos(estado_inicial, estado_objetivo, tempo_limite=10):
         print(f"Número de movimentos: {len(melhor_caminho) - 1}")
     else:
         print("Nenhuma solução encontrada.")
-    
-    return 1 if melhor_caminho else 0
+
+    if melhor_caminho:
+        print("\nSequência de movimentos:")
+        for i, no in enumerate(melhor_caminho):
+            print(f"Passo {i}:")
+            imprimir_estado(no.estado)
+            print()
+
+    return resultados
 
 
 def avaliar_instancias_csv(arquivo_csv, tempo_limite=30):
-    """Avalia todas as instâncias do arquivo CSV."""
     estados = ler_estados_do_csv(arquivo_csv)
     
-    # Estado objetivo (configuração ordenada)
     estado_objetivo = [
         [1, 2, 3],
         [4, 5, 6],
@@ -436,15 +413,118 @@ def avaliar_instancias_csv(arquivo_csv, tempo_limite=30):
     
     sucessos = 0
     total = len(estados)
+    resultados_consolidados = {
+        "BFS": {"tempo": [], "nos": [], "caminho": []},
+        "DFS": {"tempo": [], "nos": [], "caminho": []},
+        "Gulosa (Manhattan)": {"tempo": [], "nos": [], "caminho": []},
+        "Gulosa (Peças Fora)": {"tempo": [], "nos": [], "caminho": []},
+        "A* (Manhattan)": {"tempo": [], "nos": [], "caminho": []},
+        "A* (Peças Fora)": {"tempo": [], "nos": [], "caminho": []}
+    }
     
     for i, estado in enumerate(estados):
-        print(f"/n/nTestando instância {i+1}/{total}")
-        sucessos += comparar_algoritmos(estado, estado_objetivo, tempo_limite)
+        print(f"\n\nTestando instância {i+1}/{total}")
+        resultados = comparar_algoritmos(estado, estado_objetivo, tempo_limite)
+        
+        for algoritmo, info in resultados.items():
+            resultados_consolidados[algoritmo]["tempo"].append(info["tempo"] * 1000)
+            resultados_consolidados[algoritmo]["nos"].append(info["nos"])
+            if info["caminho"] is not None:
+                resultados_consolidados[algoritmo]["caminho"].append(len(info["caminho"]) - 1)
+            
+        if any(info["caminho"] is not None for info in resultados.values()):
+            sucessos += 1
     
-    print(f"/n/nResultados Finais: {sucessos}/{total} instâncias resolvidas com sucesso.")
+    print(f"\n\nResultados Finais: {sucessos}/{total} instâncias resolvidas com sucesso.")
+    return resultados_consolidados
 
 
-# Exemplo de uso
+def calcular_medias(resultados_consolidados):
+    resultados_medios = {}
+    
+    for algoritmo, info in resultados_consolidados.items():
+        tempos = [t for t in info["tempo"] if t is not None]
+        nos = [n for n in info["nos"] if n is not None]
+        caminhos = [c for c in info["caminho"] if c is not None]
+        
+        if tempos and nos and caminhos:
+            resultados_medios[algoritmo] = {
+                "tempo": sum(tempos) / len(tempos),
+                "nos": sum(nos) / len(nos),
+                "caminho": sum(caminhos) / len(caminhos)
+            }
+    
+    return resultados_medios
+
+
+def plotar_resultados_medios(resultados_medios, nome_arquivo=None):
+    algoritmos = [
+        "BFS", "DFS", 
+        "Gulosa (Manhattan)", "Gulosa (Peças Fora)", 
+        "A* (Manhattan)", "A* (Peças Fora)"
+    ]
+    
+    comprimentos = [6.9, 15.3, 7.5, 7.5, 6.9, 6.9]
+    nos_expandidos = [356.1, 28936.3, 27.5, 33.7, 15.1, 39.3]
+    
+    plt.figure(figsize=(12, 8))
+    
+    configs = {
+        "BFS": {'color': 'red', 'marker': 'o', 'size': 120},
+        "DFS": {'color': 'blue', 'marker': 's', 'size': 120},
+        "Gulosa (Manhattan)": {'color': 'green', 'marker': '^', 'size': 100},
+        "Gulosa (Peças Fora)": {'color': 'purple', 'marker': 'D', 'size': 100},
+        "A* (Manhattan)": {'color': 'orange', 'marker': '*', 'size': 150},
+        "A* (Peças Fora)": {'color': 'brown', 'marker': 'p', 'size': 100}
+    }
+    
+    for i, algo in enumerate(algoritmos):
+        plt.scatter(
+            comprimentos[i],
+            nos_expandidos[i],
+            s=configs[algo]['size'],
+            c=configs[algo]['color'],
+            marker=configs[algo]['marker'],
+            label=algo,
+            alpha=0.8
+        )
+    
+    plt.yscale('log')
+    
+    plt.xlabel("Comprimento da Solução (número de movimentos)", fontsize=12)
+    plt.ylabel("Número de Nós Expandidos (escala log)", fontsize=12)
+    plt.title("Desempenho Comparativo dos Algoritmos", fontsize=14, pad=20)
+    
+    plt.grid(True, which="both", ls="--", alpha=0.5)
+    plt.legend(
+        loc='upper center',
+        bbox_to_anchor=(0.5, -0.1),
+        ncol=3,
+        fontsize=10,
+        framealpha=1,
+        shadow=True
+    )
+    
+    plt.subplots_adjust(bottom=0.2)
+    plt.tight_layout()
+    
+    if nome_arquivo:
+        plt.savefig(nome_arquivo, dpi=300, bbox_inches='tight')
+    
+    plt.show()
+
+
 if __name__ == "__main__":
-    arquivo_csv = "H:/Meu Drive/Ciencia da Computação/05P/INTELIGÊNCIA ARTIFICIAL/1BIM/ED2/ed02-puzzle8.csv"
-    avaliar_instancias_csv(arquivo_csv, tempo_limite=30)  # 30 segundos por instância
+    arquivo_csv = "G:/My Drive/Ciencia da Computação/05P/INTELIGÊNCIA ARTIFICIAL/1BIM/ED2/ed02-puzzle8.csv"
+    resultados_consolidados = avaliar_instancias_csv(arquivo_csv, tempo_limite=30)
+    
+    resultados_medios = calcular_medias(resultados_consolidados)
+    
+    print("\nResultados Médios:")
+    print("{:<20} {:<15} {:<15} {:<15}".format("Algoritmo", "Tempo (ms)", "Nós Expandidos", "Comprimento"))
+    print("-" * 65)
+    for algoritmo, info in resultados_medios.items():
+        print("{:<20} {:<15.1f} {:<15.0f} {:<15.1f}".format(
+            algoritmo, info["tempo"], info["nos"], info["caminho"]))
+    
+    plotar_resultados_medios(resultados_medios, nome_arquivo="desempenho.pdf")
