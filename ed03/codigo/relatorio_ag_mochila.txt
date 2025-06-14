@@ -1,0 +1,572 @@
+================================================================================
+RELATÓRIO DE ANÁLISE COMPARATIVA DO ALGORITMO GENÉTICO PARA PROBLEMAS DA MOCHILA
+================================================================================
+
+
+### Processando Arquivo: knapsack_1.csv ###
+  Capacidade da Mochila: 50
+  Número de Itens: 5
+  Pesos dos Itens: [71 23 92 15 11]
+  Valores dos Itens: [385. 496. 367. 448.  29.]
+
+--- Taxas de Mutação para knapsack_1.csv ---
+    Configuração: Mutação Baixa (0.01):
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Média (0.05):
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Alta (0.10):
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Crossover para knapsack_1.csv ---
+    Configuração: Crossover Um Ponto:
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Dois Pontos:
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Uniforme:
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Seleção para knapsack_1.csv ---
+    Configuração: Seleção por Roleta:
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Seleção por Torneio:
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Inicialização da População para knapsack_1.csv ---
+    Configuração: Inicialização Aleatória:
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Inicialização Heurística:
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Critério de Parada para knapsack_1.csv ---
+    Configuração: Critério: Fixo (100 Gens):
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Critério: Convergência (20 Gens sem melhora):
+      Melhor Aptidão Média: 973.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 21.2
+
+
+======================================================================
+
+
+### Processando Arquivo: knapsack_2.csv ###
+  Capacidade da Mochila: 60
+  Número de Itens: 6
+  Pesos dos Itens: [40 25 26 91 28 97]
+  Valores dos Itens: [484. 416. 421. 417. 335. 352.]
+
+--- Taxas de Mutação para knapsack_2.csv ---
+    Configuração: Mutação Baixa (0.01):
+      Melhor Aptidão Média: 828.90 (Desvio Padrão: 24.30)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Média (0.05):
+      Melhor Aptidão Média: 837.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Alta (0.10):
+      Melhor Aptidão Média: 837.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Crossover para knapsack_2.csv ---
+    Configuração: Crossover Um Ponto:
+      Melhor Aptidão Média: 837.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Dois Pontos:
+      Melhor Aptidão Média: 837.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Uniforme:
+      Melhor Aptidão Média: 837.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Seleção para knapsack_2.csv ---
+    Configuração: Seleção por Roleta:
+      Melhor Aptidão Média: 837.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Seleção por Torneio:
+      Melhor Aptidão Média: 837.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Inicialização da População para knapsack_2.csv ---
+    Configuração: Inicialização Aleatória:
+      Melhor Aptidão Média: 837.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Inicialização Heurística:
+      Melhor Aptidão Média: 837.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Critério de Parada para knapsack_2.csv ---
+    Configuração: Critério: Fixo (100 Gens):
+      Melhor Aptidão Média: 837.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Critério: Convergência (20 Gens sem melhora):
+      Melhor Aptidão Média: 828.90 (Desvio Padrão: 24.30)
+      Gerações Médias Executadas: 22.9
+
+
+======================================================================
+
+
+### Processando Arquivo: knapsack_3.csv ###
+  Capacidade da Mochila: 80
+  Número de Itens: 8
+  Pesos dos Itens: [65 85 90 90 37 47 23 74]
+  Valores dos Itens: [384. 212. 181. 320. 461. 416. 262. 415.]
+
+--- Taxas de Mutação para knapsack_3.csv ---
+    Configuração: Mutação Baixa (0.01):
+      Melhor Aptidão Média: 714.00 (Desvio Padrão: 18.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Média (0.05):
+      Melhor Aptidão Média: 723.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Alta (0.10):
+      Melhor Aptidão Média: 723.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Crossover para knapsack_3.csv ---
+    Configuração: Crossover Um Ponto:
+      Melhor Aptidão Média: 723.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Dois Pontos:
+      Melhor Aptidão Média: 723.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Uniforme:
+      Melhor Aptidão Média: 723.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Seleção para knapsack_3.csv ---
+    Configuração: Seleção por Roleta:
+      Melhor Aptidão Média: 723.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Seleção por Torneio:
+      Melhor Aptidão Média: 723.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Inicialização da População para knapsack_3.csv ---
+    Configuração: Inicialização Aleatória:
+      Melhor Aptidão Média: 723.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Inicialização Heurística:
+      Melhor Aptidão Média: 723.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Critério de Parada para knapsack_3.csv ---
+    Configuração: Critério: Fixo (100 Gens):
+      Melhor Aptidão Média: 723.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Critério: Convergência (20 Gens sem melhora):
+      Melhor Aptidão Média: 714.00 (Desvio Padrão: 18.00)
+      Gerações Médias Executadas: 24.2
+
+
+======================================================================
+
+
+### Processando Arquivo: knapsack_4.csv ###
+  Capacidade da Mochila: 100
+  Número de Itens: 10
+  Pesos dos Itens: [64 56 43 11 99 41 23 18  1 26]
+  Valores dos Itens: [208. 191. 433. 281. 220.  19. 434. 472. 343. 180.]
+
+--- Taxas de Mutação para knapsack_4.csv ---
+    Configuração: Mutação Baixa (0.01):
+      Melhor Aptidão Média: 1896.20 (Desvio Padrão: 138.31)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Média (0.05):
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Alta (0.10):
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Crossover para knapsack_4.csv ---
+    Configuração: Crossover Um Ponto:
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Dois Pontos:
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Uniforme:
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Seleção para knapsack_4.csv ---
+    Configuração: Seleção por Roleta:
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Seleção por Torneio:
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Inicialização da População para knapsack_4.csv ---
+    Configuração: Inicialização Aleatória:
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Inicialização Heurística:
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Critério de Parada para knapsack_4.csv ---
+    Configuração: Critério: Fixo (100 Gens):
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Critério: Convergência (20 Gens sem melhora):
+      Melhor Aptidão Média: 1963.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 26.1
+
+
+======================================================================
+
+
+### Processando Arquivo: knapsack_5.csv ###
+  Capacidade da Mochila: 120
+  Número de Itens: 12
+  Pesos dos Itens: [84 81 97 76 24 38 50  3 50 13 78 37]
+  Valores dos Itens: [312. 488. 129. 478. 207. 122. 497. 208.  71. 415. 274. 234.]
+
+--- Taxas de Mutação para knapsack_5.csv ---
+    Configuração: Mutação Baixa (0.01):
+      Melhor Aptidão Média: 1299.50 (Desvio Padrão: 74.45)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Média (0.05):
+      Melhor Aptidão Média: 1332.60 (Desvio Padrão: 50.75)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Alta (0.10):
+      Melhor Aptidão Média: 1354.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Crossover para knapsack_5.csv ---
+    Configuração: Crossover Um Ponto:
+      Melhor Aptidão Média: 1354.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Dois Pontos:
+      Melhor Aptidão Média: 1354.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Uniforme:
+      Melhor Aptidão Média: 1354.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Seleção para knapsack_5.csv ---
+    Configuração: Seleção por Roleta:
+      Melhor Aptidão Média: 1354.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Seleção por Torneio:
+      Melhor Aptidão Média: 1354.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Inicialização da População para knapsack_5.csv ---
+    Configuração: Inicialização Aleatória:
+      Melhor Aptidão Média: 1354.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Inicialização Heurística:
+      Melhor Aptidão Média: 1354.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Critério de Parada para knapsack_5.csv ---
+    Configuração: Critério: Fixo (100 Gens):
+      Melhor Aptidão Média: 1337.20 (Desvio Padrão: 50.40)
+      Gerações Médias Executadas: 100.0
+    Configuração: Critério: Convergência (20 Gens sem melhora):
+      Melhor Aptidão Média: 1332.60 (Desvio Padrão: 50.75)
+      Gerações Médias Executadas: 27.6
+
+
+======================================================================
+
+
+### Processando Arquivo: knapsack_6.csv ###
+  Capacidade da Mochila: 150
+  Número de Itens: 15
+  Pesos dos Itens: [77 37 95 74 55 58 31 93 89 65 81 19  2 83 25]
+  Valores dos Itens: [488. 336. 156. 391. 493. 173. 137. 254. 317. 105. 269. 496. 294.  34.
+ 296.]
+
+--- Taxas de Mutação para knapsack_6.csv ---
+    Configuração: Mutação Baixa (0.01):
+      Melhor Aptidão Média: 1501.70 (Desvio Padrão: 524.35)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Média (0.05):
+      Melhor Aptidão Média: 1915.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Alta (0.10):
+      Melhor Aptidão Média: 1915.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Crossover para knapsack_6.csv ---
+    Configuração: Crossover Um Ponto:
+      Melhor Aptidão Média: 1890.90 (Desvio Padrão: 72.30)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Dois Pontos:
+      Melhor Aptidão Média: 1915.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Uniforme:
+      Melhor Aptidão Média: 1915.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Seleção para knapsack_6.csv ---
+    Configuração: Seleção por Roleta:
+      Melhor Aptidão Média: 1915.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Seleção por Torneio:
+      Melhor Aptidão Média: 1915.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Inicialização da População para knapsack_6.csv ---
+    Configuração: Inicialização Aleatória:
+      Melhor Aptidão Média: 1915.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Inicialização Heurística:
+      Melhor Aptidão Média: 1915.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Critério de Parada para knapsack_6.csv ---
+    Configuração: Critério: Fixo (100 Gens):
+      Melhor Aptidão Média: 1915.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Critério: Convergência (20 Gens sem melhora):
+      Melhor Aptidão Média: 1883.00 (Desvio Padrão: 96.00)
+      Gerações Médias Executadas: 34.5
+
+
+======================================================================
+
+
+### Processando Arquivo: knapsack_7.csv ###
+  Capacidade da Mochila: 180
+  Número de Itens: 18
+  Pesos dos Itens: [16 78 16  2 36  4 33 58 10 93 82 57 93 58 60 79 71 66]
+  Valores dos Itens: [318.  21. 413. 486. 106.  87.  17. 221. 122.  36. 238. 412. 444. 475.
+ 339. 473.  59. 479.]
+
+--- Taxas de Mutação para knapsack_7.csv ---
+    Configuração: Mutação Baixa (0.01):
+      Melhor Aptidão Média: 2256.00 (Desvio Padrão: 135.87)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Média (0.05):
+      Melhor Aptidão Média: 2380.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Alta (0.10):
+      Melhor Aptidão Média: 2380.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Crossover para knapsack_7.csv ---
+    Configuração: Crossover Um Ponto:
+      Melhor Aptidão Média: 2380.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Dois Pontos:
+      Melhor Aptidão Média: 2380.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Uniforme:
+      Melhor Aptidão Média: 2380.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Seleção para knapsack_7.csv ---
+    Configuração: Seleção por Roleta:
+      Melhor Aptidão Média: 2380.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Seleção por Torneio:
+      Melhor Aptidão Média: 2380.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Inicialização da População para knapsack_7.csv ---
+    Configuração: Inicialização Aleatória:
+      Melhor Aptidão Média: 2380.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Inicialização Heurística:
+      Melhor Aptidão Média: 2380.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+
+--- Critério de Parada para knapsack_7.csv ---
+    Configuração: Critério: Fixo (100 Gens):
+      Melhor Aptidão Média: 2380.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Critério: Convergência (20 Gens sem melhora):
+      Melhor Aptidão Média: 2373.70 (Desvio Padrão: 18.90)
+      Gerações Médias Executadas: 38.2
+
+
+======================================================================
+
+
+### Processando Arquivo: knapsack_8.csv ###
+  Capacidade da Mochila: 200
+  Número de Itens: 20
+  Pesos dos Itens: [71 84 33 12 50 91 30 21 60  6 20  9 26 24 85 96 11 20 36 18]
+  Valores dos Itens: [288. 439. 353. 408. 363. 467. 183. 475. 484. 165. 104. 354.  72. 395.
+ 198. 219.  19. 196. 333.  86.]
+
+--- Taxas de Mutação para knapsack_8.csv ---
+    Configuração: Mutação Baixa (0.01):
+      Melhor Aptidão Média: 2679.70 (Desvio Padrão: 183.57)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Média (0.05):
+      Melhor Aptidão Média: 2857.70 (Desvio Padrão: 10.15)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Alta (0.10):
+      Melhor Aptidão Média: 2861.30 (Desvio Padrão: 9.13)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Crossover para knapsack_8.csv ---
+    Configuração: Crossover Um Ponto:
+      Melhor Aptidão Média: 2858.60 (Desvio Padrão: 8.91)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Dois Pontos:
+      Melhor Aptidão Média: 2853.70 (Desvio Padrão: 16.19)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Uniforme:
+      Melhor Aptidão Média: 2860.40 (Desvio Padrão: 10.58)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Seleção para knapsack_8.csv ---
+    Configuração: Seleção por Roleta:
+      Melhor Aptidão Média: 2856.90 (Desvio Padrão: 7.99)
+      Gerações Médias Executadas: 100.0
+    Configuração: Seleção por Torneio:
+      Melhor Aptidão Média: 2851.40 (Desvio Padrão: 15.62)
+      Gerações Médias Executadas: 100.0
+
+--- Inicialização da População para knapsack_8.csv ---
+    Configuração: Inicialização Aleatória:
+      Melhor Aptidão Média: 2866.30 (Desvio Padrão: 6.13)
+      Gerações Médias Executadas: 100.0
+    Configuração: Inicialização Heurística:
+      Melhor Aptidão Média: 2866.20 (Desvio Padrão: 3.43)
+      Gerações Médias Executadas: 100.0
+
+--- Critério de Parada para knapsack_8.csv ---
+    Configuração: Critério: Fixo (100 Gens):
+      Melhor Aptidão Média: 2857.60 (Desvio Padrão: 8.94)
+      Gerações Médias Executadas: 100.0
+    Configuração: Critério: Convergência (20 Gens sem melhora):
+      Melhor Aptidão Média: 2847.50 (Desvio Padrão: 26.85)
+      Gerações Médias Executadas: 37.1
+
+
+======================================================================
+
+
+### Processando Arquivo: knapsack_9.csv ###
+  Capacidade da Mochila: 250
+  Número de Itens: 25
+  Pesos dos Itens: [14 32 91 58 10 37 53 18  2 84 73 39 77 34 88 18 64 90 35 43 49 36 60 82
+  9]
+  Valores dos Itens: [425. 239. 482. 319. 302. 146. 234. 448.  63. 163. 183. 222.  10. 253.
+  33.  28. 242.  45. 439. 162. 216. 238. 289. 188. 438.]
+
+--- Taxas de Mutação para knapsack_9.csv ---
+    Configuração: Mutação Baixa (0.01):
+      Melhor Aptidão Média: 1742.60 (Desvio Padrão: 1426.61)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Média (0.05):
+      Melhor Aptidão Média: 3143.90 (Desvio Padrão: 34.68)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Alta (0.10):
+      Melhor Aptidão Média: 3126.30 (Desvio Padrão: 38.86)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Crossover para knapsack_9.csv ---
+    Configuração: Crossover Um Ponto:
+      Melhor Aptidão Média: 3157.10 (Desvio Padrão: 20.70)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Dois Pontos:
+      Melhor Aptidão Média: 3164.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Uniforme:
+      Melhor Aptidão Média: 3147.50 (Desvio Padrão: 33.17)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Seleção para knapsack_9.csv ---
+    Configuração: Seleção por Roleta:
+      Melhor Aptidão Média: 3112.20 (Desvio Padrão: 34.21)
+      Gerações Médias Executadas: 100.0
+    Configuração: Seleção por Torneio:
+      Melhor Aptidão Média: 3153.50 (Desvio Padrão: 23.29)
+      Gerações Médias Executadas: 100.0
+
+--- Inicialização da População para knapsack_9.csv ---
+    Configuração: Inicialização Aleatória:
+      Melhor Aptidão Média: 3164.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Inicialização Heurística:
+      Melhor Aptidão Média: 3157.10 (Desvio Padrão: 20.70)
+      Gerações Médias Executadas: 100.0
+
+--- Critério de Parada para knapsack_9.csv ---
+    Configuração: Critério: Fixo (100 Gens):
+      Melhor Aptidão Média: 3164.00 (Desvio Padrão: 0.00)
+      Gerações Médias Executadas: 100.0
+    Configuração: Critério: Convergência (20 Gens sem melhora):
+      Melhor Aptidão Média: 2524.30 (Desvio Padrão: 1262.32)
+      Gerações Médias Executadas: 51.5
+
+
+======================================================================
+
+
+### Processando Arquivo: knapsack_10.csv ###
+  Capacidade da Mochila: 300
+  Número de Itens: 30
+  Pesos dos Itens: [90 18 13 53 33 62 52 31 46 37 39 88 76 57 38 34 97 15 98 42 69 53 60  1
+ 48 11 34 25 45 22]
+  Valores dos Itens: [302. 245. 277.  34. 157. 141. 388. 232. 298. 131. 244.  78.  72. 377.
+  70. 153. 108. 483. 257.  57. 340. 255. 487. 322. 242. 362.  56. 222.
+ 234. 128.]
+
+--- Taxas de Mutação para knapsack_10.csv ---
+    Configuração: Mutação Baixa (0.01):
+      Melhor Aptidão Média: 2229.60 (Desvio Padrão: 1467.63)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Média (0.05):
+      Melhor Aptidão Média: 3428.30 (Desvio Padrão: 22.16)
+      Gerações Médias Executadas: 100.0
+    Configuração: Mutação Alta (0.10):
+      Melhor Aptidão Média: 3346.50 (Desvio Padrão: 79.76)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Crossover para knapsack_10.csv ---
+    Configuração: Crossover Um Ponto:
+      Melhor Aptidão Média: 3430.50 (Desvio Padrão: 36.32)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Dois Pontos:
+      Melhor Aptidão Média: 3437.20 (Desvio Padrão: 19.85)
+      Gerações Médias Executadas: 100.0
+    Configuração: Crossover Uniforme:
+      Melhor Aptidão Média: 3441.40 (Desvio Padrão: 16.67)
+      Gerações Médias Executadas: 100.0
+
+--- Tipos de Seleção para knapsack_10.csv ---
+    Configuração: Seleção por Roleta:
+      Melhor Aptidão Média: 3390.80 (Desvio Padrão: 58.30)
+      Gerações Médias Executadas: 100.0
+    Configuração: Seleção por Torneio:
+      Melhor Aptidão Média: 3418.70 (Desvio Padrão: 27.00)
+      Gerações Médias Executadas: 100.0
+
+--- Inicialização da População para knapsack_10.csv ---
+    Configuração: Inicialização Aleatória:
+      Melhor Aptidão Média: 3433.30 (Desvio Padrão: 34.05)
+      Gerações Médias Executadas: 100.0
+    Configuração: Inicialização Heurística:
+      Melhor Aptidão Média: 3459.30 (Desvio Padrão: 5.10)
+      Gerações Médias Executadas: 100.0
+
+--- Critério de Parada para knapsack_10.csv ---
+    Configuração: Critério: Fixo (100 Gens):
+      Melhor Aptidão Média: 3443.70 (Desvio Padrão: 15.24)
+      Gerações Médias Executadas: 100.0
+    Configuração: Critério: Convergência (20 Gens sem melhora):
+      Melhor Aptidão Média: 2725.30 (Desvio Padrão: 1363.09)
+      Gerações Médias Executadas: 50.5
+
+
+======================================================================
+
