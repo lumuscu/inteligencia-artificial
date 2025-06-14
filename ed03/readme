@@ -1,0 +1,35 @@
+# Análise Comparativa de Algoritmos Genéticos para o Problema da Mochila
+
+Este repositório contém um script Python que implementa um Algoritmo Genético (AG) para resolver o clássico Problema da Mochila (Knapsack Problem). O objetivo principal é realizar uma análise comparativa do impacto de diferentes configurações de operadores genéticos e critérios de parada no desempenho do AG, utilizando múltiplas instâncias do problema.
+
+## Descrição do Projeto
+
+O projeto visa explorar como variações nos parâmetros do AG afetam a capacidade do algoritmo de encontrar soluções ótimas ou quase-ótimas para o Problema da Mochila, bem como sua eficiência computacional. São testados diferentes tipos de operadores de seleção, crossover e mutação, além de estratégias de inicialização da população e critérios de parada.
+
+## Funcionalidades
+
+- **Implementação Completa do AG:** Contém as funções essenciais para um Algoritmo Genético:
+    - Representação do cromossomo (vetor binário).
+    - Função de Aptidão (Fitness Function) com penalização para soluções inválidas.
+    - Inicialização da População (Aleatória e Heurística baseada em razão valor/peso).
+    - Seleção de Pais (Roleta e Torneio).
+    - Operadores de Crossover (Um Ponto, Dois Pontos e Uniforme).
+    - Operador de Mutação (Bit-flip).
+- **Análise Comparativa:** Executa o AG com diversas combinações de parâmetros para avaliar seu impacto:
+    - **Taxas de Mutação:** Baixa (0.01), Média (0.05), Alta (0.10).
+    - **Tipos de Crossover:** Um Ponto, Dois Pontos, Uniforme.
+    - **Tipos de Seleção:** Roleta, Torneio.
+    - **Inicialização da População:** Aleatória, Heurística.
+    - **Critério de Parada:** Número fixo de gerações, Convergência (com limiar de gerações sem melhoria).
+- **Processamento de Múltiplas Instâncias:** O script é configurado para processar automaticamente 10 instâncias do Problema da Mochila (arquivos `knapsack_1.csv` a `knapsack_10.csv`).
+- **Geração de Relatório:** Ao final da execução, um relatório detalhado em formato de texto (`.txt`) é gerado, contendo os resultados médios de aptidão e gerações para cada configuração em cada instância.
+- **Feedback de Progresso:** Mensagens no terminal informam o andamento do processamento de cada arquivo CSV.
+
+## Como Usar
+
+### Pré-requisitos
+
+Certifique-se de ter o Python (versão 3.x recomendada) instalado. Você também precisará das seguintes bibliotecas Python. Você pode instalá-las usando `pip`:
+
+```bash
+pip install pandas numpy
